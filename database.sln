@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C03E3E73-40D0-4597-8688-EB134F14365E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Model", "src\Data.Model\Data.Model.csproj", "{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D0ED20FB-DBC1-406C-9ED6-D632A75C6C45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Model.Tests", "test\Data.Model.Tests\Data.Model.Tests.csproj", "{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{981921AC-7299-4997-843C-1F51B8A6F15D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC} = {C03E3E73-40D0-4597-8688-EB134F14365E}
+		{CE601736-9EE7-42C9-AFCC-4CB086EDC3BF} = {D0ED20FB-DBC1-406C-9ED6-D632A75C6C45}
+	EndGlobalSection
+EndGlobal

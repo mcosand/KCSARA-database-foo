@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2184DA4-B88F-4968-A8FB-3076FEEFA9BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kcsar.Data.Model</RootNamespace>
+    <AssemblyName>Data.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animal.cs" />
+    <Compile Include="AnimalMission.cs" />
+    <Compile Include="AnimalOwner.cs" />
+    <Compile Include="Attributes.cs" />
+    <Compile Include="AuditLog.cs" />
+    <Compile Include="ComputedTrainingAward.cs" />
+    <Compile Include="ContactInfoSubType.cs" />
+    <Compile Include="CurrentMemberIds.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="EmergencyContact.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IAddress.cs" />
+    <Compile Include="IDocument.cs" />
+    <Compile Include="IModelObject.cs" />
+    <Compile Include="IRosterEvent.cs" />
+    <Compile Include="ITrainingAward.cs" />
+    <Compile Include="KcsarContext.cs" />
+    <Compile Include="KcsarContext_SaveChanges.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="MemberEmergencyContact.cs" />
+    <Compile Include="MemberMedical.cs" />
+    <Compile Include="MemberUnitDocument.cs" />
+    <Compile Include="Migrations\201208302058166_InitialCreate.cs" />
+    <Compile Include="Migrations\201208302058166_InitialCreate.Designer.cs">
+      <DependentUpon>201208302058166_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201209070517147_Member_SheriffApp.cs" />
+    <Compile Include="Migrations\201209070517147_Member_SheriffApp.Designer.cs">
+      <DependentUpon>201209070517147_Member_SheriffApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201302080725191_MissionRosterRequired.cs" />
+    <Compile Include="Migrations\201302080725191_MissionRosterRequired.Designer.cs">
+      <DependentUpon>201302080725191_MissionRosterRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307200720558_MemberExternalKey.cs" />
+    <Compile Include="Migrations\201307200720558_MemberExternalKey.Designer.cs">
+      <DependentUpon>201307200720558_MemberExternalKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308090456333_MemberStatus.cs" />
+    <Compile Include="Migrations\201308090456333_MemberStatus.Designer.cs">
+      <DependentUpon>201308090456333_MemberStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309050314287_UnitDocuments.cs" />
+    <Compile Include="Migrations\201309050314287_UnitDocuments.Designer.cs">
+      <DependentUpon>201309050314287_UnitDocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311122014357_ValidationUpdate.cs" />
+    <Compile Include="Migrations\201311122014357_ValidationUpdate.Designer.cs">
+      <DependentUpon>201311122014357_ValidationUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Mission.cs" />
+    <Compile Include="MissionDetails.cs" />
+    <Compile Include="MissionGeography.cs" />
+    <Compile Include="MissionLog.cs" />
+    <Compile Include="MissionRoster.cs" />
+    <Compile Include="ModelObject.cs" />
+    <Compile Include="PersonAddress.cs" />
+    <Compile Include="PersonContact.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleViolation.cs" />
+    <Compile Include="SarUnit.cs" />
+    <Compile Include="SensitiveInfoAccess.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="SubjectGroup.cs" />
+    <Compile Include="SubjectGroupLink.cs" />
+    <Compile Include="Training.cs" />
+    <Compile Include="TrainingAward.cs" />
+    <Compile Include="TrainingCourse.cs" />
+    <Compile Include="TrainingExpirationSummary.cs" />
+    <Compile Include="TrainingRecordCalculator.cs" />
+    <Compile Include="TrainingRoster.cs" />
+    <Compile Include="TrainingRule.cs" />
+    <Compile Include="TrainingStatus.cs" />
+    <Compile Include="UnitApplicant.cs" />
+    <Compile Include="UnitContact.cs" />
+    <Compile Include="UnitDocument.cs" />
+    <Compile Include="UnitMembership.cs" />
+    <Compile Include="UnitStatus.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="xref_county_id.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201209070517147_Member_SheriffApp.resx">
+      <DependentUpon>201209070517147_Member_SheriffApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201302080725191_MissionRosterRequired.resx">
+      <DependentUpon>201302080725191_MissionRosterRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307200720558_MemberExternalKey.resx">
+      <DependentUpon>201307200720558_MemberExternalKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308090456333_MemberStatus.resx">
+      <DependentUpon>201308090456333_MemberStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309050314287_UnitDocuments.resx">
+      <DependentUpon>201309050314287_UnitDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311122014357_ValidationUpdate.resx">
+      <DependentUpon>201311122014357_ValidationUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IKcsarContext.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
