@@ -6,7 +6,7 @@ namespace Kcsar.Database.Model
   {
     [Required]
     public virtual Animal Animal { get; set; }
-    
+
     [Required]
     public virtual MissionRoster MissionRoster { get; set; }
 

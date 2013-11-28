@@ -2,8 +2,7 @@
 namespace Kcsar.Database.Model.Migrations
 {
     using System.CodeDom.Compiler;
-    using System.Data.Entity.Migrations;
-    using System.Data.Entity.Migrations.Infrastructure;
+  using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.1-21010")]

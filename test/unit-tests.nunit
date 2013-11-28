@@ -1,6 +1,7 @@
 ﻿<NUnitProject>
-  <Settings activeconfig="Default" />
+  <Settings activeconfig="Default" processModel="Default" domainUsage="Default" />
   <Config name="Default" binpathtype="Auto">
+    <assembly path="Website.Tests\bin\Debug\Website.Tests.dll" />
     <assembly path="Data.Model.Tests\bin\Debug\Data.Model.Tests.dll" />
   </Config>
 </NUnitProject>

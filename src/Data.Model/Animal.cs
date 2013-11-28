@@ -1,8 +1,8 @@
 ﻿namespace Kcsar.Database.Model
 {
   using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+  using System.ComponentModel.DataAnnotations;
+  using System.Linq;
 
   public class Animal : ModelObject
   {
@@ -46,17 +46,17 @@ using System.Linq;
 
       if (string.IsNullOrWhiteSpace(this.Name))
       {
-        yield return new ValidationResult("Required", new [] { "Name" });
+        yield return new ValidationResult("Required", new[] { "Name" });
       }
 
       if (string.IsNullOrWhiteSpace(this.DemSuffix))
       {
-        yield return new ValidationResult("Required", new [] { "DemSuffix" });
+        yield return new ValidationResult("Required", new[] { "DemSuffix" });
       }
 
       if (string.IsNullOrEmpty(this.Type))
       {
-        yield return new ValidationResult("Required", new [] { "Type" });
+        yield return new ValidationResult("Required", new[] { "Type" });
       }
       else if (!Animal.AllowedTypes.Contains(this.Type.ToLower()))
       {

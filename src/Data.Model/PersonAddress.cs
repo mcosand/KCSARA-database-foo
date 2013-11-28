@@ -1,10 +1,10 @@
 ﻿namespace Kcsar.Database.Model
 {
-  using Microsoft.SqlServer.Types;
   using System;
   using System.ComponentModel.DataAnnotations.Schema;
   using System.Data.SqlTypes;
   using System.Runtime.Serialization;
+  using Microsoft.SqlServer.Types;
 
   public class PersonAddress : ModelObject, IAddressGeography
   {

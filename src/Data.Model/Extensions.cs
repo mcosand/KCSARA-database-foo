@@ -1,25 +1,19 @@
-﻿using System.Data.Entity.Core.Objects.DataClasses;
-using System.Data.Entity.Infrastructure;
-
-namespace System.Linq
+﻿namespace System.Linq
 {
-    public static class Extensions
+  using System.Data.Entity.Infrastructure;
+
+  public static class Extensions
+  {
+    public static IQueryable<T> Include<T>(this IQueryable<T> query, params string[] includes)
     {
-        public static Guid GetId(this EntityReference obj)
-        {
-            return (Guid)obj.EntityKey.EntityKeyValues.First().Value;
-        }
+      DbQuery<T> dbQuery = query as DbQuery<T>;
+      if (dbQuery == null) return query;
 
-        public static IQueryable<T> Include<T>(this IQueryable<T> query, params string[] includes)
-        {
-            DbQuery<T> dbQuery = query as DbQuery<T>;
-            if (dbQuery == null) return query;
-
-            foreach (var include in includes)
-            {
-                dbQuery = dbQuery.Include(include);
-            }
-            return dbQuery;
-        }
+      foreach (var include in includes)
+      {
+        dbQuery = dbQuery.Include(include);
+      }
+      return dbQuery;
     }
+  }
 }

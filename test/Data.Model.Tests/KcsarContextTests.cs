@@ -1,15 +1,13 @@
-﻿using Kcsar.Database.Model;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using Kcsar.Database.Model;
+using NUnit.Framework;
 
 namespace Internal.Data.Model.Tests
 {
@@ -156,7 +154,7 @@ namespace Internal.Data.Model.Tests
         {
             Thread.Sleep(1000);
             DateTime result = DateTime.Now;
-            while (result.Second != DateTime.Now.Second)
+            while (result.Second == DateTime.Now.Second)
             {
               Thread.Sleep(100);
             }
