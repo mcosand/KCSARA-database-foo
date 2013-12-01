@@ -14,8 +14,12 @@ namespace Kcsar.Database.Web.Api
 
   public class MissionsController : DatabaseApiController
   {
-    public MissionsController(IKcsarContext db, IPermissionsService permissions, ILog log)
-      : base(db, permissions, log)
+    public MissionsController(
+      IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
     }
 

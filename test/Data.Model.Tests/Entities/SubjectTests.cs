@@ -1,8 +1,11 @@
-﻿using Kcsar.Database.Model;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Internal.Data.Model.Tests.Entities
-{    
-    public class SubjectTests : EntityTestFixture<Subject>
-    {
-    }
+{
+  using Kcsar.Database.Model;
+
+  public class SubjectTests : EntityTestFixture<Subject>
+  {
+  }
 }

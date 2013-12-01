@@ -24,8 +24,13 @@ namespace Kcsar.Database.Web.Api
   public abstract class DocumentsController : DatabaseApiController
   {
     protected readonly IDocumentsService documents;
-    public DocumentsController(IDocumentsService documents, IPermissionsService permissions, Data.IKcsarContext db, ILog log)
-      : base(db, permissions, log)
+    public DocumentsController(
+      IDocumentsService documents,
+      Data.IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
       this.documents = documents;
     }

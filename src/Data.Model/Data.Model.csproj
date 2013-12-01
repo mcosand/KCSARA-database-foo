@@ -114,7 +114,6 @@
     <Compile Include="PersonAddress.cs" />
     <Compile Include="PersonContact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RuleViolation.cs" />
     <Compile Include="SarUnit.cs" />
     <Compile Include="SensitiveInfoAccess.cs" />
     <Compile Include="Subject.cs" />

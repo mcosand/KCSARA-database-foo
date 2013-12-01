@@ -15,8 +15,12 @@ namespace Kcsar.Database.Web.Api
 
   public class TrainingCoursesController : DatabaseApiController
   {
-    public TrainingCoursesController(IPermissionsService permissions, Data.IKcsarContext db, ILog log)
-      : base(db, permissions, log)
+    public TrainingCoursesController(
+      IPermissionsService permissions,
+      Data.IKcsarContext db,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
     }
 

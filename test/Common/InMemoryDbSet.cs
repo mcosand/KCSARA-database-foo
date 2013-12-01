@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-
-namespace Internal.Data.Model.Tests
+﻿/*
+ * Copyright (c) Stefan Pataky
+ * Copyright (c) 2013 Matt Cosand
+ */
+namespace Internal.Common
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Data.Entity;
+  using System.Linq;
+
   // From https://gist.github.com/troufster/913659
   public class InMemoryDbSet<T> : IDbSet<T> where T : class
   {

@@ -1,4 +1,6 @@
-﻿
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Model
 {
     using System;
@@ -48,11 +50,6 @@ namespace Kcsar.Database.Model
 
         public static CompositeTrainingStatus Compute(Member m, IEnumerable<TrainingCourse> courses, DateTime when)
         {
-            //if (!m.ComputedAwards.IsLoaded)
-            //{
-            //    throw new InvalidOperationException("Must pre-load member's .ComputedAwards.Course");
-            //}
-            
             return CompositeTrainingStatus.Compute(m, m.ComputedAwards, courses, when);
         }
 

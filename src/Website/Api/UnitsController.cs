@@ -14,8 +14,12 @@ namespace Kcsar.Database.Web.Api
   [ModelValidationFilter]
   public class UnitsController : DatabaseApiController
   {
-    public UnitsController(Data.IKcsarContext db, IPermissionsService permissions, ILog log)
-      : base(db, permissions, log)
+    public UnitsController(
+      Data.IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
     }
     #region Applications
@@ -93,7 +97,7 @@ namespace Kcsar.Database.Web.Api
         query = query.Where(f => f.Unit.Id == id);
       }
 
-      MembersController members = new MembersController(db, this.permissions, this.log);
+      MembersController members = new MembersController(db, this.permissions, this.hosting, this.log);
 
       var notDoneDocs = new[] { Data.DocumentStatus.NotApplicable.ToString(), Data.DocumentStatus.NotStarted.ToString() };
 

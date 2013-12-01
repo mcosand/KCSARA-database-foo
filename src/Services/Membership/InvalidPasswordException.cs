@@ -1,12 +1,15 @@
-﻿using System;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Web
 {
-    public class InvalidPasswordException : ApplicationException
+  using System;
+
+  public class InvalidPasswordException : ApplicationException
+  {
+    public InvalidPasswordException(string message)
+      : base(message)
     {
-        public InvalidPasswordException(string message)
-            : base(message)
-        {
-        }
     }
+  }
 }

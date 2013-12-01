@@ -1,9 +1,13 @@
-﻿using System;
-using System.Data.Entity;
-using Kcsar.Database.Model;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Internal.Data.Model.Tests
 {
+  using System;
+  using System.Data.Entity;
+  using Internal.Common;
+  using Kcsar.Database.Model;
+
   public class TestContext : IKcsarContext
   {
     public IDbSet<Animal> Animals { get; private set; }

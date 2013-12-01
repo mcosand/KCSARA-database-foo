@@ -17,8 +17,12 @@ namespace Kcsar.Database.Web.Api
   [ModelValidationFilter]
   public class TrainingRecordsController : DatabaseApiController
   {
-    public TrainingRecordsController(IPermissionsService permissions, Data.IKcsarContext db, ILog log)
-      : base(db, permissions, log)
+    public TrainingRecordsController(
+      Data.IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
     }
 

@@ -10,8 +10,13 @@ namespace Kcsar.Database.Web.Api
 
   public class TrainingDocumentsController : DocumentsController
   {
-    public TrainingDocumentsController(IDocumentsService documents, IPermissionsService permissions, IKcsarContext db, ILog log)
-      : base(documents, permissions, db, log)
+    public TrainingDocumentsController(
+      IDocumentsService documents,
+      IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(documents, db, permissions, hosting, log)
     {
     }
 

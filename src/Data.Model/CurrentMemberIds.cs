@@ -1,9 +1,12 @@
-﻿using System;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Model
 {
-    public class CurrentMemberIds
-    {
-        public Guid Id { get; set; }
-    }
+  using System;
+
+  public class CurrentMemberIds
+  {
+    public Guid Id { get; set; }
+  }
 }

@@ -11,8 +11,8 @@ namespace Kcsar.Database.Web.Api
   /// <summary>Provides telemetry back to server. Not for general use.</summary>
   public class TelemetryController : BaseApiController
   {
-        public TelemetryController(IPermissionsService permissions, ILog log)
-      : base(permissions, log)
+        public TelemetryController(IPermissionsService permissions, IWebHostingService hosting, ILog log)
+      : base(permissions, hosting, log)
     {
     }
 

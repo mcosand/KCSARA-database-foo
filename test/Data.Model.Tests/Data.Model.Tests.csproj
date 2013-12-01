@@ -86,7 +86,6 @@
     <Compile Include="Entities\MemberMedicalTests.cs" />
     <Compile Include="Entities\DocumentTests.cs" />
     <Compile Include="Entities\MemberTests.cs" />
-    <Compile Include="InMemoryDbSet.cs" />
     <Compile Include="KcsarContextTests.cs" />
     <Compile Include="MigrateDbToLatestInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +100,10 @@
     <ProjectReference Include="..\..\src\Data.Model\Data.Model.csproj">
       <Project>{c2184da4-b88f-4968-a8fb-3076feefa9bc}</Project>
       <Name>Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Test.Common.csproj">
+      <Project>{0ef72379-358c-4aed-8e3c-8836103e7bf6}</Project>
+      <Name>Test.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

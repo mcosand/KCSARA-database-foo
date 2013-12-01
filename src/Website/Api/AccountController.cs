@@ -20,20 +20,30 @@ namespace Kcsar.Database.Web.Api
   [ModelValidationFilter]
   public class AccountController : DatabaseApiController
   {
-    public const string APPLICANT_ROLE = "cdb.applicants";
+    public static readonly string APPLICANT_ROLE = "cdb.applicants";
 
-    public const int USERNAME_MIN_LENGTH = 3;
-    public const int USERNAME_MAX_LENGTH = 200;
-    public const int PASSWORD_MIN_LENGTH = 6;
-    public const int PASSWORD_MAX_LENGTH = 64;
-    public const int APPLICANT_MIN_AGE = 14;
-    public const string USERNAME_STATUS_AVAILABLE = "Available";
-    public const string USERNAME_STATUS_NOTAVAILABLE = "Not Available";
+    public static readonly int USERNAME_MIN_LENGTH = 3;
+    public static readonly int USERNAME_MAX_LENGTH = 200;
+    public static readonly int PASSWORD_MIN_LENGTH = 6;
+    public static readonly int PASSWORD_MAX_LENGTH = 64;
+    public static readonly int APPLICANT_MIN_AGE = 14;
+    public static readonly string USERNAME_STATUS_AVAILABLE = "Available";
+    public static readonly string USERNAME_STATUS_NOTAVAILABLE = "Not Available";
+
+    public static readonly string LOG_ERROR_CREATING_ACCOUNT = "Error creating account";
+    public static readonly string LOG_ERROR_CREATING_ACCOUNT_EXTERNAL = "An error occured while creating your user account";
+
+    public static readonly string MAIL_SUBJECT_TEMPLATE = "{0} account verification";
 
     readonly IEmailService email;
 
-    public AccountController(IEmailService email, IPermissionsService permissions, IKcsarContext db, ILog log)
-      : base(db, permissions, log)
+    public AccountController(
+      IEmailService email,
+      IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
       this.email = email;
     }
@@ -103,15 +113,14 @@ namespace Kcsar.Database.Web.Api
         return string.Format(WebStrings.Validation_MaxCharacters, WebStrings.Property_Password, PASSWORD_MAX_LENGTH);
 
 
-      var user = System.Web.Security.Membership.CreateUser(data.Username, data.Password, data.Email);
+      var user = this.permissions.CreateUser(data.Username, data.Password, data.Email);
 
       try
       {
         user.IsApproved = false;
-        System.Web.Security.Membership.UpdateUser(user);
+        this.permissions.UpdateUser(user);
 
-        System.Web.Security.FormsAuthenticationTicket ticket = new System.Web.Security.FormsAuthenticationTicket(data.Username, false, 5);
-        Thread.CurrentPrincipal = new System.Web.Security.RolePrincipal(new System.Web.Security.FormsIdentity(ticket));
+        this.permissions.SetCurrentUser(data.Username);
 
         Member newMember = new Member
         {
@@ -139,7 +148,7 @@ namespace Kcsar.Database.Web.Api
           UnitsController.RegisterApplication(db, unitId, newMember);
         }
 
-        KcsarUserProfile profile = ProfileBase.Create(data.Username) as KcsarUserProfile;
+        KcsarUserProfile profile = this.permissions.GetProfile(data.Username);
         if (profile != null)
         {
           profile.FirstName = data.Firstname;
@@ -148,27 +157,27 @@ namespace Kcsar.Database.Web.Api
           profile.Save();
         }
 
-        if (!System.Web.Security.Roles.RoleExists(APPLICANT_ROLE))
+        if (!this.permissions.RoleExists(APPLICANT_ROLE))
         {
-          System.Web.Security.Roles.CreateRole(APPLICANT_ROLE);
+          this.permissions.CreateRole(APPLICANT_ROLE);
         }
-        System.Web.Security.Roles.AddUserToRole(data.Username, APPLICANT_ROLE);
+        this.permissions.AddUserToRole(data.Username, APPLICANT_ROLE);
 
-        string mailSubject = string.Format("{0} account verification", ConfigurationManager.AppSettings["dbNameShort"] ?? "KCSARA");
-        string mailTemplate = File.ReadAllText(Path.Combine(Path.GetDirectoryName(new Uri(typeof(AccountController).Assembly.CodeBase).LocalPath), "EmailTemplates", "new-account-verification.html"));
+        string mailSubject = string.Format(MAIL_SUBJECT_TEMPLATE, WebStrings.DatabaseName);
+        string mailTemplate = this.hosting.ReadFile("EmailTemplates\\new-account-verification.html");
         string mailBody = mailTemplate
             .Replace("%Username%", data.Username)
-            .Replace("%VerifyLink%", new Uri(this.Request.RequestUri, Url.Route("Default", new { httproute = "", controller = "Account", action = "Verify", id = data.Username })).AbsoluteUri + "?key=" + user.ProviderUserKey.ToString())
-            .Replace("%WebsiteContact%", "webpage@kingcountysar.org");
+            .Replace("%VerifyLink%", this.hosting.GetApiUrl("Account", "Verify", data.Username, true)  + "?key=" + user.ProviderUserKey.ToString())
+            .Replace("%WebsiteContact%", this.hosting.FeedbackAddress);
 
         db.SaveChanges();
         this.email.SendMail(data.Email, mailSubject, mailBody);
       }
       catch (Exception ex)
       {
-        log.Error(ex.ToString());
-        System.Web.Security.Membership.DeleteUser(data.Username);
-        return "An error occured while creating your user account";
+        log.Error(LOG_ERROR_CREATING_ACCOUNT, ex);
+        this.permissions.DeleteUser(data.Username);
+        return LOG_ERROR_CREATING_ACCOUNT_EXTERNAL;
       }
 
       return "OK";
@@ -180,11 +189,11 @@ namespace Kcsar.Database.Web.Api
       if (data == null || string.IsNullOrWhiteSpace(data.Username) || string.IsNullOrWhiteSpace(data.Key))
         return false;
 
-      var user = System.Web.Security.Membership.GetUser(data.Username);
+      var user = this.permissions.GetUser(data.Username);
       if (user != null && data.Key.Equals((user.ProviderUserKey ?? "").ToString(), StringComparison.OrdinalIgnoreCase))
       {
         user.IsApproved = true;
-        System.Web.Security.Membership.UpdateUser(user);
+        this.permissions.UpdateUser(user);
 
         return true;
       }

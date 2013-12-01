@@ -1,4 +1,7 @@
-﻿namespace System.Linq
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
+namespace System.Linq
 {
   using System.Data.Entity.Infrastructure;
 

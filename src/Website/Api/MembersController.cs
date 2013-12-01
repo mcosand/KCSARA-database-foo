@@ -19,8 +19,12 @@ namespace Kcsar.Database.Web.Api
   [ModelValidationFilter]
   public class MembersController : DatabaseApiController
   {
-    public MembersController(Data.IKcsarContext db, IPermissionsService permissions, ILog log)
-      : base(db, permissions, log)
+    public MembersController(
+      Data.IKcsarContext db,
+      IPermissionsService permissions,
+      IWebHostingService hosting,
+      ILog log)
+      : base(db, permissions, hosting, log)
     {
     }
     /// <summary>

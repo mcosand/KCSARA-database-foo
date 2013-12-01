@@ -1,14 +1,16 @@
-﻿
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Model
 {
-    public class MemberEmergencyContact : ModelObject
-    {
-        public Member Member { get; set; }
-        public string EncryptedData { get; set; }
+  public class MemberEmergencyContact : ModelObject
+  {
+    public Member Member { get; set; }
+    public string EncryptedData { get; set; }
 
-        public override string GetReportHtml()
-        {
-            return "Emergency Contact information for <b>" + this.Member.FullName + "</b>";
-        }
+    public override string GetReportHtml()
+    {
+      return "Emergency Contact information for <b>" + this.Member.FullName + "</b>";
     }
+  }
 }

@@ -1,4 +1,7 @@
-﻿namespace Kcsara.Database.Services
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
+namespace Kcsara.Database.Services
 {
   using System;
   using System.Text;

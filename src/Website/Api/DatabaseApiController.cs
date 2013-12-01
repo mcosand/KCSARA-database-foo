@@ -15,8 +15,8 @@ namespace Kcsar.Database.Web.Api
   {
     protected readonly IKcsarContext db;
 
-    public DatabaseApiController(IKcsarContext db, IPermissionsService permissions, ILog log)
-      : base(permissions, log)
+    public DatabaseApiController(IKcsarContext db, IPermissionsService permissions, IWebHostingService hosting, ILog log)
+      : base(permissions, hosting, log)
     {
       this.db = db;
     }

@@ -16,11 +16,13 @@ namespace Kcsar.Database.Web.Api
     {
     public readonly ILog log;
     protected readonly IPermissionsService permissions;
+    protected readonly IWebHostingService hosting;
 
-    public BaseApiController(IPermissionsService permissions, ILog log)
+    public BaseApiController(IPermissionsService permissions, IWebHostingService hosting, ILog log)
     {
       this.log = log;
       this.permissions = permissions;
+      this.hosting = hosting;
     }
 
     protected void ThrowAuthError()

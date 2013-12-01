@@ -1,8 +1,11 @@
-﻿using Kcsar.Database.Model;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Internal.Data.Model.Tests.Entities
-{    
-    public class SubjectGroupLinkTests : EntityTestFixture<SubjectGroupLink>
-    {
-    }
+{
+  using Kcsar.Database.Model;
+
+  public class SubjectGroupLinkTests : EntityTestFixture<SubjectGroupLink>
+  {
+  }
 }

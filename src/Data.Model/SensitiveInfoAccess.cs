@@ -1,21 +1,24 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Model
 {
-    public class SensitiveInfoAccess
-    {
-        public SensitiveInfoAccess()
-        {
-            this.Id = Guid.NewGuid();
-        }
+  using System;
+  using System.ComponentModel.DataAnnotations;
 
-        [Key]
-        public Guid Id { get; set; }
-        public string Actor { get; set; }
-        public DateTime Timestamp { get; set; }
-        public Member Owner { get; set; }
-        public string Action { get; set; }
-        public string Reason { get; set; }
+  public class SensitiveInfoAccess
+  {
+    public SensitiveInfoAccess()
+    {
+      this.Id = Guid.NewGuid();
     }
+
+    [Key]
+    public Guid Id { get; set; }
+    public string Actor { get; set; }
+    public DateTime Timestamp { get; set; }
+    public Member Owner { get; set; }
+    public string Action { get; set; }
+    public string Reason { get; set; }
+  }
 }

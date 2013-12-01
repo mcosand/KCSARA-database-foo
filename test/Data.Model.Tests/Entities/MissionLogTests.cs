@@ -1,8 +1,11 @@
-﻿using Kcsar.Database.Model;
-
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Internal.Data.Model.Tests.Entities
 {
-    public class MissionLogTests : EntityTestFixture<MissionLog>
-    {
-    }
+  using Kcsar.Database.Model;
+
+  public class MissionLogTests : EntityTestFixture<MissionLog>
+  {
+  }
 }

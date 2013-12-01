@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/*
+ * Copyright (c) 2013 Matt Cosand
+ */
 namespace Kcsar.Database.Model
 {
+  using System.ComponentModel.DataAnnotations;
 
   public class AnimalMission : ModelObject
   {
